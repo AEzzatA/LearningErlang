@@ -1,4 +1,5 @@
 -module(what_the_if).
+-author("Ahmed Ezzat Afifi").
 -export([heh_fine/0, oh_god/1,help_me/1, insert/2]).
 
 heh_fine() ->

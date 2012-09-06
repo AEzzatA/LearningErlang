@@ -1,5 +1,6 @@
 -module(cases).
 -export([beach/1]).
+-author("Ahmed Ezzat Afifi").
 
 beach(Temperature) ->
 	case Temperature of
