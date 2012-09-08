@@ -5,7 +5,10 @@
 	 tail_duplicate/2,
 	 duplicate/2,
 	 reverse/1,
-	 tail_reverse/1
+	 tail_reverse/1,
+	 zip/2,
+	 lenient_zip/2
+	 quicksort/1
 	 ]).
 fac(0) -> 1;
 fac(N) when N >  0 -> N*fac(N-1).
@@ -48,4 +51,25 @@ tail_sublist([],_,Sublist) -> Sublist;
 tail_sublist([H|T],N, Sublist) when N > 0 ->
 	tail_sublist(T,N-1,[H|Sublist]).
 tail_sublist(L,N) -> reverse(tail_sublist(L,N,[])).
+
+zip([],[]) -> [];
+zip([X|Xs],[Y|Ys]) -> [{X,Y}|zip(Xs,Ys)].
+
+lenient_zip([],_) -> [];
+lenient_zip(_,[]) -> [];
+lenient_zip([X|Xs],[Y|Ys]) -> [{X,Y}|lenient_zip(Xs,Ys)].
+
+
+%%%% QUICK SORT ALGORITHM
+
+quicksort([]) -> [];
+quicksort([Pivot|Rest]) ->
+	{Smaller, Larger} = partition(Pivot,Rest,[],[]),
+	quicksort(Smaller) ++ [Pivot] ++ quicksort(Larger).
+
+partition(_,[],Smaller,Larger) -> {Smaller, Larger};
+partition(Pivot, [H|T], Smaller, Larger) ->
+	if H =< Pivot -> partition(Pivot,T, [H|Smaller], Larger);
+	   H >  Pivot -> partition(Pivot,T, Smaller,[H|Larger])
+	end.
 
