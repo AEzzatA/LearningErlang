@@ -1,7 +1,7 @@
 -module(functions).
 -author("Ahmed Ezzat Afifi").
 -compile(export_all).
-
+%% some basic functions
 head([H|_]) ->
 	H.
 second([_,X|_]) ->

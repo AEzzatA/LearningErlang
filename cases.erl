@@ -2,6 +2,8 @@
 -export([beach/1]).
 -author("Ahmed Ezzat Afifi").
 
+%% cases module
+
 beach(Temperature) ->
 	case Temperature of
 		{celsius,N} when N >= 20, N =< 45 ->
