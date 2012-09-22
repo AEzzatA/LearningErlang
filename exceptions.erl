@@ -42,3 +42,36 @@ black_knight(Attack) when is_function(Attack,0) ->
 
 %%just a test function 
 talk() -> "blah blah".
+
+
+woha() ->
+	try
+		talk(),
+		_Knight = "None shall Pass!",
+		_Doubles = [N*2 || N <- lists:seq(1,100)],
+		throw(up),
+		_WillReturnThis = tequila
+	of
+		tequila -> "Hey this worked!!!!"
+	catch
+		Exception:Reason -> {caught, Exception, Reason}
+	end.
+
+
+im_impressed() ->
+	try
+		talk(),
+		_Knight = "Non shall Pass!",
+		_Doubles = [N*2 || N <- lists:seq(1,100)],
+		throw(up),
+		_WillReturnThis = tequila
+		
+	catch
+		Exception:Reason -> {caught, Exception, Reason}
+	end.
+
+catcher(X,Y) ->
+	case catch X/Y of
+		{'EXIT', {badarith, _}} -> "Uh oh".
+		 N -> N
+	end.
