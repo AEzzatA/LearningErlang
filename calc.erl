@@ -24,6 +24,8 @@ rpn("prod", Stack)  -> [lists:foldl(fun erlang:'*'/2, 1, Stack)];
 rpn(X, Stack) -> [read(X)|Stack].
 
 
+
+%%%% Use this function to test results, Unless this section is useless 
 rpn_test() ->
 	5  = rpn("2 3 +"),
 	87 = rpn("90 3 -"),
