@@ -22,11 +22,11 @@ loop(S = #state{}) ->
 				true ->
 					EventPid = event:start_link(Name, TimeOut),
 					NewEvents = orddict:store(Name,
-											#event{name= Name,
-												description = Description,
-												pid= EventPid,
-												timeout= TimeOut},
-												S#state.events),
+								#event{name= Name,
+								description = Description,
+								pid= EventPid,
+								timeout= TimeOut},
+								S#state.events),
 					Pid ! {MsgRef, ok},
 					loop(S#state{events= NewEvents});
 				false ->
